@@ -6,12 +6,20 @@ export const ProfileActionCreatorsClient = {
         type: ProfileActionsEnum.UPDATE_PERSON,
         payload: person
     }),
+    AddChild: (child: IPerson) => ({
+        type: ProfileActionsEnum.ADD_CHILD,
+        payload: child
+    }),
     UpdateChild: (child: IPerson, id: number) => ({
         type: ProfileActionsEnum.UPDATE_CHILD,
         payload: { child, id }
     }),
-    DeleteChild: (id: number) => ({
-        type: ProfileActionsEnum.DELETE_CHILD,
+    RemoveChild: (id: number) => ({
+        type: ProfileActionsEnum.REMOVE_CHILD,
         payload: id
+    }),
+    UpdateChildren: (children: Array<IPerson>) => ({
+        type: ProfileActionsEnum.UPDATE_CHILDREN,
+        payload: children
     })
 };

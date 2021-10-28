@@ -16,6 +16,10 @@ const profileClientReducer = (state = initialState, action: ProfileActions): IPr
             return {
                 ...state, person: action.payload
             }
+        case ProfileActionsEnum.ADD_CHILD:
+            return {
+                ...state, children: [...state.children, action.payload]
+            }
         case ProfileActionsEnum.UPDATE_CHILD: {
             const index = state.children.findIndex(item => item.id === action.payload.id);
             return {
@@ -27,10 +31,15 @@ const profileClientReducer = (state = initialState, action: ProfileActions): IPr
                 ]
             }
         }
-        case ProfileActionsEnum.DELETE_CHILD:
+        case ProfileActionsEnum.REMOVE_CHILD:
             return {
                 ...state,
                 children: state.children.filter(item => item.id !== action.payload)
+            }
+        case ProfileActionsEnum.UPDATE_CHILDREN:
+            return {
+                ...state,
+                children: action.payload
             }
         default:
             return state;

@@ -1,39 +1,46 @@
-import React, {FC, useState} from 'react';
+import React, {FC} from 'react';
 import PersonInput from "../person-input";
 import {IPerson} from "../../model";
 
 interface IChildListItemFormProps {
+    id: number;
     child: IPerson;
-    setChild: (child: IPerson) => void;
-    removeChild: () => void;
+    updateChild: (child: IPerson, id: number) => void;
+    removeChild: (id: number) => void;
 }
 
-const ChildListItemForm: FC<IChildListItemFormProps> = ({child, setChild, removeChild}) => {
-    const [name, setName] = useState(child.name);
-    const [age, setAge] = useState(child.age);
+const ChildListItemForm: FC<IChildListItemFormProps> = ({id, child, updateChild, removeChild}) => {
 
-    const changeHandler = () => {
+    const updateNameHandler = (value: string) =>
+        updateChild({
+            ...child, name: value
+        }, id);
 
-    };
+    const updateAgeHandler = (value: string) =>
+        updateChild({
+            ...child, age: (value ? parseInt(value) : 0)
+        }, id);
+
+    const deleteHandler = () => removeChild(id);
 
     return (
         <li>
-            {/*<PersonInput
+            <PersonInput
                 type='text'
-                setValue={setName}
-                value={name}
+                setValue={updateNameHandler}
+                value={child.name}
                 title='Name'
             />
             <PersonInput
                 type='number'
-                setValue={(value: string) => setAge(value ? parseInt(value) : 0)}
-                value={String(age)}
+                setValue={updateAgeHandler}
+                value={String(child.age)}
                 title='Age'
                 min={0}
                 max={150}
                 step={1}
             />
-            <button type='button'>Delete</button>*/}
+            <button type='button' onClick={deleteHandler}>Delete</button>
         </li>
     );
 };

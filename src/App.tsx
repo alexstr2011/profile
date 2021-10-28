@@ -1,12 +1,14 @@
 import React from 'react';
-import ProfileForm from "./components/profile-form";
+import Profile from "./pages/profile";
+import Preview from "./pages/preview";
 
 function App() {
-  return (
-    <div>App
-      <ProfileForm/>
-    </div>
-  );
+    return (
+        <div>App
+            <Profile/>
+            <Preview/>
+        </div>
+    );
 }
 
 export default App;

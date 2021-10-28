@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
 export const store = createStore(rootReducer);
 export type TState = ReturnType<typeof store.getState>;
 
-export const profileActionCreators = {
+export const ProfileActionCreators = {
     client: ProfileActionCreatorsClient,
     server: ProfileActionCreatorsServer
 }

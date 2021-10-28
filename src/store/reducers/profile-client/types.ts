@@ -2,12 +2,19 @@ import {IPerson} from "../../../model";
 
 export enum ProfileActionsEnum {
     UPDATE_PERSON = 'UPDATE_PERSON',
+    ADD_CHILD = 'ADD_CHILD',
     UPDATE_CHILD = 'UPDATE_CHILD',
-    DELETE_CHILD = 'DELETE_CHILD'
+    REMOVE_CHILD = 'REMOVE_CHILD',
+    UPDATE_CHILDREN = 'UPDATE_CHILDREN'
 }
 
 export interface IUpdatePersonAction {
     type: ProfileActionsEnum.UPDATE_PERSON,
+    payload: IPerson
+}
+
+export interface IAddChildAction {
+    type: ProfileActionsEnum.ADD_CHILD,
     payload: IPerson
 }
 
@@ -20,11 +27,18 @@ export interface IUpdateChildAction {
 }
 
 export interface IDeleteChildAction {
-    type: ProfileActionsEnum.DELETE_CHILD,
+    type: ProfileActionsEnum.REMOVE_CHILD,
     payload: number
+}
+
+export interface IUpdateChildrenAction {
+    type: ProfileActionsEnum.UPDATE_CHILDREN,
+    payload: Array<IPerson>
 }
 
 export type ProfileActions =
     IUpdatePersonAction |
+    IAddChildAction |
     IUpdateChildAction |
-    IDeleteChildAction;
+    IDeleteChildAction |
+    IUpdateChildrenAction;
