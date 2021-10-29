@@ -1,4 +1,5 @@
 import React, {FC} from 'react';
+import styles from './person-input.module.css';
 
 interface IPersonInputProps {
     type: string;
@@ -22,17 +23,19 @@ const PersonInput: FC<IPersonInputProps> = (
     }) => {
 
     return (
-        <label>
-            <span>{title}</span>
+        <div className={styles.wrapper}>
             <input
+                className={styles.input}
                 type={type}
                 onChange={(e) => setValue(e.currentTarget.value)}
                 min={min}
                 max={max}
                 step={step}
                 value={value}
+                placeholder={title}
             />
-        </label>
+            <span className={styles.title}>{title}</span>
+        </div>
     );
 };
 

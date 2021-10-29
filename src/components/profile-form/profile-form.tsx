@@ -5,6 +5,7 @@ import PersonInput from "../person-input/person-input";
 import {ActionCreators} from "../../store";
 import ChildListItemForm from "../child-list-item-form/child-list-item-form";
 import {IPerson} from "../../model";
+import styles from './profile-form.module.css';
 
 const ProfileForm = () => {
     const {person, children} = useTypedSelector(state => state.profileClient);
@@ -38,8 +39,8 @@ const ProfileForm = () => {
     const removeChildHandler = (id: number) => dispatch(ActionCreators.form.RemoveChild(id));
 
     return (
-        <form onSubmit={submitHandler}>
-            ProfileForm
+        <form className={styles.form} onSubmit={submitHandler}>
+            <h2 className={styles.title}>Персональные данные</h2>
             <PersonInput
                 type='text'
                 setValue={updateNameHandler}
@@ -49,12 +50,13 @@ const ProfileForm = () => {
             <PersonInput
                 type='number'
                 setValue={updateAgeHandler}
-                value={String(person.age)}
+                value={String(person.age ? person.age : '')}
                 title='Age'
                 min={0}
                 max={150}
                 step={1}
             />
+            <h2 className={styles.title}>Дети (макс. 5)</h2>
             <button type='button' onClick={addChildHandler}>Add child</button>
             <ul>
                 {

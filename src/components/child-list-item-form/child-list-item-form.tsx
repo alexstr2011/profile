@@ -34,7 +34,7 @@ const ChildListItemForm: FC<IChildListItemFormProps> = ({id, child, updateChild,
             <PersonInput
                 type='number'
                 setValue={updateAgeHandler}
-                value={String(child.age)}
+                value={String(child.age ? child.age : '')}
                 title='Age'
                 min={0}
                 max={150}
