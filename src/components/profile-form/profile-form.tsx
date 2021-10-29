@@ -1,9 +1,9 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../store/hooks";
-import PersonInput from "../person-input";
+import PersonInput from "../person-input/person-input";
 import {ActionCreators} from "../../store";
-import ChildListItemForm from "../child-list-item-form";
+import ChildListItemForm from "../child-list-item-form/child-list-item-form";
 import {IPerson} from "../../model";
 
 const ProfileForm = () => {

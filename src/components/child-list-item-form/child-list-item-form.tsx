@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import PersonInput from "../person-input";
+import PersonInput from "../person-input/person-input";
 import {IPerson} from "../../model";
 
 interface IChildListItemFormProps {
