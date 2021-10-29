@@ -10,7 +10,7 @@ const initialState: IProfileState = {
     children: []
 }
 
-const profileClientReducer = (state = initialState, action: ProfileActions): IProfileState => {
+const profileFormReducer = (state = initialState, action: ProfileActions): IProfileState => {
     switch (action.type) {
         case ProfileActionsEnum.UPDATE_PERSON:
             return {
@@ -46,4 +46,4 @@ const profileClientReducer = (state = initialState, action: ProfileActions): IPr
     }
 };
 
-export default profileClientReducer;
+export default profileFormReducer;

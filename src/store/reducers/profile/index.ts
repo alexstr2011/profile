@@ -10,9 +10,9 @@ const initialState: IProfileState = {
     children: []
 }
 
-const profileServerReducer = (state = initialState, action: ProfileActions): IProfileState => {
+const profileReducer = (state = initialState, action: ProfileActions): IProfileState => {
     switch (action.type) {
-        case ProfileActionsEnum.UPDATE_ON_SERVER:
+        case ProfileActionsEnum.UPDATE:
             return {
                 ...state,
                 person: action.payload.person,
@@ -23,4 +23,4 @@ const profileServerReducer = (state = initialState, action: ProfileActions): IPr
     }
 };
 
-export default profileServerReducer;
+export default profileReducer;

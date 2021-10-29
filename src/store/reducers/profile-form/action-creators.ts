@@ -1,7 +1,7 @@
 import {ProfileActionsEnum} from "./types";
 import {IPerson} from "../../../model";
 
-export const ProfileActionCreatorsClient = {
+export const ProfileFormActionCreators = {
     UpdatePerson: (person: IPerson) => ({
         type: ProfileActionsEnum.UPDATE_PERSON,
         payload: person

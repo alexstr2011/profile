@@ -1,9 +1,9 @@
 import {ProfileActionsEnum} from "./types";
 import {IProfileState} from "../../../model";
 
-export const ProfileActionCreatorsServer = {
+export const ProfileActionCreators = {
     Update: (profile: IProfileState) => ({
-        type: ProfileActionsEnum.UPDATE_ON_SERVER,
+        type: ProfileActionsEnum.UPDATE,
         payload: profile
     })
 };

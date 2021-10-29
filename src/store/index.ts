@@ -1,18 +1,18 @@
 import {combineReducers, createStore} from 'redux';
-import profileClientReducer from "./reducers/profile-client";
-import profileServerReducer from "./reducers/profile-server";
-import {ProfileActionCreatorsClient} from "./reducers/profile-client/action-creators";
-import {ProfileActionCreatorsServer} from "./reducers/profile-server/action-creators";
+import profileFormReducer from "./reducers/profile-form";
+import profileReducer from "./reducers/profile";
+import {ProfileFormActionCreators} from "./reducers/profile-form/action-creators";
+import {ProfileActionCreators} from "./reducers/profile/action-creators";
 
 const rootReducer = combineReducers({
-    profileClient: profileClientReducer,
-    profileServer: profileServerReducer
+    profileClient: profileFormReducer,
+    profileServer: profileReducer
 });
 
 export const store = createStore(rootReducer);
 export type TState = ReturnType<typeof store.getState>;
 
-export const ProfileActionCreators = {
-    client: ProfileActionCreatorsClient,
-    server: ProfileActionCreatorsServer
+export const ActionCreators = {
+    form: ProfileFormActionCreators,
+    profile: ProfileActionCreators
 }

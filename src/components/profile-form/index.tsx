@@ -2,7 +2,7 @@ import React from 'react';
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../store/hooks";
 import PersonInput from "../person-input";
-import {ProfileActionCreators} from "../../store";
+import {ActionCreators} from "../../store";
 import ChildListItemForm from "../child-list-item-form";
 import {IPerson} from "../../model";
 
@@ -12,30 +12,30 @@ const ProfileForm = () => {
 
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        dispatch(ProfileActionCreators.server.Update({
+        dispatch(ActionCreators.profile.Update({
             person: person,
             children: children
         }));
     };
 
-    const updateNameHandler = (value: string) => dispatch(ProfileActionCreators.client.UpdatePerson({
+    const updateNameHandler = (value: string) => dispatch(ActionCreators.form.UpdatePerson({
         ...person, name: value
     }));
 
-    const updateAgeHandler = (value: string) => dispatch(ProfileActionCreators.client.UpdatePerson({
+    const updateAgeHandler = (value: string) => dispatch(ActionCreators.form.UpdatePerson({
         ...person, age: (value ? parseInt(value) : 0)
     }));
 
-    const addChildHandler = () => dispatch(ProfileActionCreators.client.AddChild({
+    const addChildHandler = () => dispatch(ActionCreators.form.AddChild({
         id: Date.now(),
         name: '',
         age: 0
     }));
 
     const updateChildHandler = (child: IPerson, id: number) =>
-        dispatch(ProfileActionCreators.client.UpdateChild(child, id));
+        dispatch(ActionCreators.form.UpdateChild(child, id));
 
-    const removeChildHandler = (id: number) => dispatch(ProfileActionCreators.client.RemoveChild(id));
+    const removeChildHandler = (id: number) => dispatch(ActionCreators.form.RemoveChild(id));
 
     return (
         <form onSubmit={submitHandler}>
