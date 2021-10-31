@@ -6,6 +6,7 @@ import {ActionCreators} from "../../store";
 import ChildListItemForm from "../child-list-item-form/child-list-item-form";
 import {IPerson} from "../../model";
 import styles from './profile-form.module.css';
+import StyledButton from "../styled-button/styled-button";
 
 const ProfileForm = () => {
     const {person, children} = useTypedSelector(state => state.profileClient);
@@ -46,6 +47,7 @@ const ProfileForm = () => {
                 setValue={updateNameHandler}
                 value={person.name}
                 title='Name'
+                required={true}
             />
             <PersonInput
                 type='number'
@@ -55,10 +57,22 @@ const ProfileForm = () => {
                 min={0}
                 max={150}
                 step={1}
+                required={true}
             />
-            <h2 className={styles.title}>Дети (макс. 5)</h2>
-            <button type='button' onClick={addChildHandler}>Add child</button>
-            <ul>
+            <div className={styles.childrenTitleWrapper}>
+                <h2 className={styles.title}>Дети (макс. 5)</h2>
+                {
+                    children.length < 5 && (
+                        <StyledButton
+                            type='button'
+                            onClick={addChildHandler}
+                            styleType='plus'>
+                            Добавить ребенка
+                        </StyledButton>
+                    )
+                }
+            </div>
+            <ul className={styles.childrenList}>
                 {
                     children.map(item =>
                         <ChildListItemForm
@@ -70,7 +84,7 @@ const ProfileForm = () => {
                     )
                 }
             </ul>
-            <button type='submit'>Save</button>
+            <StyledButton type='submit' styleType='primary'>Сохранить</StyledButton>
         </form>
     );
 };

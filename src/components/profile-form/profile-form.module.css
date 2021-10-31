@@ -1,7 +1,9 @@
 .form {
     margin: auto;
     max-width: 616px;
-    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
 .title {
@@ -9,4 +11,20 @@
     font-size: 16px;
     line-height: 24px;
     color: #111111;
+}
+
+.childrenTitleWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 23px;
+    height: 44px;
+}
+
+.childrenList {
+    list-style: none;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }

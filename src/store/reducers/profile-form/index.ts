@@ -16,10 +16,11 @@ const profileFormReducer = (state = initialState, action: ProfileActions): IProf
             return {
                 ...state, person: action.payload
             }
-        case ProfileActionsEnum.ADD_CHILD:
+        case ProfileActionsEnum.ADD_CHILD: {
             return {
                 ...state, children: [...state.children, action.payload]
             }
+        }
         case ProfileActionsEnum.UPDATE_CHILD: {
             const index = state.children.findIndex(item => item.id === action.payload.id);
             return {

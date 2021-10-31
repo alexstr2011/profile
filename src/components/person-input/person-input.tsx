@@ -9,6 +9,7 @@ interface IPersonInputProps {
     min?: number;
     max?: number;
     step?: number;
+    required?: boolean;
 }
 
 const PersonInput: FC<IPersonInputProps> = (
@@ -19,7 +20,8 @@ const PersonInput: FC<IPersonInputProps> = (
         title,
         min,
         max,
-        step
+        step,
+        required = false
     }) => {
 
     return (
@@ -33,6 +35,7 @@ const PersonInput: FC<IPersonInputProps> = (
                 step={step}
                 value={value}
                 placeholder={title}
+                required={required}
             />
             <span className={styles.title}>{title}</span>
         </div>

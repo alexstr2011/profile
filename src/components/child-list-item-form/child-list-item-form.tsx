@@ -1,6 +1,8 @@
 import React, {FC} from 'react';
 import PersonInput from "../person-input/person-input";
 import {IPerson} from "../../model";
+import StyledButton from "../styled-button/styled-button";
+import styles from './child-list-item-form.module.css';
 
 interface IChildListItemFormProps {
     id: number;
@@ -24,12 +26,13 @@ const ChildListItemForm: FC<IChildListItemFormProps> = ({id, child, updateChild,
     const deleteHandler = () => removeChild(id);
 
     return (
-        <li>
+        <li className={styles.listItem}>
             <PersonInput
                 type='text'
                 setValue={updateNameHandler}
                 value={child.name}
                 title='Name'
+                required={true}
             />
             <PersonInput
                 type='number'
@@ -39,8 +42,9 @@ const ChildListItemForm: FC<IChildListItemFormProps> = ({id, child, updateChild,
                 min={0}
                 max={150}
                 step={1}
+                required={true}
             />
-            <button type='button' onClick={deleteHandler}>Delete</button>
+            <StyledButton type='button' onClick={deleteHandler} styleType='borderless'>Удалить</StyledButton>
         </li>
     );
 };
