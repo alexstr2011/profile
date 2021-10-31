@@ -28,3 +28,9 @@
 .link:active, .linkActive {
     color: rgba(17, 17, 17, 0.9);
 }
+
+@media only screen and (max-width: 650px) {
+    .logo {
+        left: -20px;
+    }
+}
