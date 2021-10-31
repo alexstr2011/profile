@@ -1,0 +1,37 @@
+.wrapper {
+    margin-left: 27%;
+}
+
+.title {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #111111;
+}
+
+.person {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 24px;
+    color: #111111;
+}
+
+.children {
+    margin-top: 60px;
+}
+
+.childrenList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.child {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #F1F1F1;
+    border-radius: 5px;
+}

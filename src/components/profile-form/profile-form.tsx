@@ -46,14 +46,14 @@ const ProfileForm = () => {
                 type='text'
                 setValue={updateNameHandler}
                 value={person.name}
-                title='Name'
+                title='Имя'
                 required={true}
             />
             <PersonInput
                 type='number'
                 setValue={updateAgeHandler}
                 value={String(person.age ? person.age : '')}
-                title='Age'
+                title='Возраст'
                 min={0}
                 max={150}
                 step={1}

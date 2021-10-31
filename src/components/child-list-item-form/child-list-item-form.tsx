@@ -31,14 +31,14 @@ const ChildListItemForm: FC<IChildListItemFormProps> = ({id, child, updateChild,
                 type='text'
                 setValue={updateNameHandler}
                 value={child.name}
-                title='Name'
+                title='Имя'
                 required={true}
             />
             <PersonInput
                 type='number'
                 setValue={updateAgeHandler}
                 value={String(child.age ? child.age : '')}
-                title='Age'
+                title='Возраст'
                 min={0}
                 max={150}
                 step={1}

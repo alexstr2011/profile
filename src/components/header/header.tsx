@@ -8,8 +8,20 @@ const Header = () => {
         <header className={styles.header}>
             <LogoIcon className={styles.logo}/>
             <nav>
-                <NavLink className={styles.link} to="/" exact>Form</NavLink>
-                <NavLink className={styles.link} to="/preview" exact>Preview</NavLink>
+                <NavLink
+                    className={styles.link}
+                    activeClassName={styles.linkActive}
+                    to="/"
+                    exact>
+                    Форма
+                </NavLink>
+                <NavLink
+                    className={styles.link}
+                    activeClassName={styles.linkActive}
+                    to="/preview"
+                    exact>
+                    Превью
+                </NavLink>
             </nav>
         </header>
     );
